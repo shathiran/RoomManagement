@@ -1,0 +1,45 @@
+buildscript {
+	ext {
+		springBootVersion = '1.3.0.RELEASE'
+	}
+	repositories {
+		mavenLocal()
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse-wtp'
+apply plugin: 'idea'
+apply plugin: 'groovy'
+apply plugin: 'spring-boot'
+apply plugin: 'war'
+
+
+war {
+	baseName = 'RoomManagement'
+	version = '0.0.1'
+}
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+	mavenLocal()
+	mavenCentral()
+}
+
+dependencies {
+
+	compile("org.springframework.boot:spring-boot-starter-web")
+	compile("org.springframework.boot:spring-boot-starter-security")
+	compile("org.springframework.boot:spring-boot-starter-data-jpa")
+	providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
+	 
+	compile("org.hibernate:hibernate-envers:4.3.10.Final")
+	compile("org.projectlombok:lombok:1.16.6")
+	compile("mysql:mysql-connector-java:5.1.29")
+	testCompile("junit:junit")
+}

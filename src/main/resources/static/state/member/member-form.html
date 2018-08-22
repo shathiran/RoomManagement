@@ -1,0 +1,125 @@
+<div class="content-wrapper">
+	<section class="content-header">
+		<h1>{{action}} Member</h1>
+		<ol class="breadcrumb">
+			<li><a class="curser-pointer"><i class="fa fa-dashboard"></i> Home</a></li>
+			<li ui-sref="room.members" class="curser-pointer">Members</li>
+			<li class="active">{{action}}</li>
+		</ol>
+	</section>
+
+	<section class="content">
+		<div class="box box-primary">
+			<div class="box-body">
+				<div class="row">
+					<div class="col-sm-3">
+						<div class="form-group">
+		                  <label for="name">Name</label>
+		                  <input type="text" 
+		                  	class="form-control" 
+	                  		id="name"
+	                  		ng-model="member.name" 
+	                  		placeholder="Enter Name"
+	                  		maxlength="50"
+	                  		ng-disabled="action == 'View' || action == 'Edit'">
+		                </div>
+					</div>
+					<div class="col-sm-3">
+						<div class="form-group">
+		                  <label for="NickName">Nick Name</label>
+		                  <input type="text" 
+		                  	id="NickName" 
+		                  	class="form-control" 
+		                  	ng-model="member.nickName" 
+		                  	placeholder="Enter Nick Name"
+		                  	maxlength="50"
+		                  	ng-disabled="action == 'View'">
+		                </div>
+					</div>
+					<div class="col-sm-3">
+						<div class="form-group">
+		                  <label for="MobileNumber">Mobile Number</label>
+		                  <input type="text" 
+		                  	id="MobileNumber" 
+		                  	class="form-control" 
+		                  	ng-model="member.mobileNumber" 
+		                  	placeholder="Enter Mobile Number"
+		                  	maxlength="10"
+		                  	ng-disabled="action == 'View' || action == 'Edit'">
+		                </div>
+					</div>
+					<div class="col-sm-3">
+						<div class="form-group">
+		                  <label for="Email">Email</label>
+		                  <input type="email" 
+		                  	id="Email" 
+		                  	class="form-control" 
+		                  	ng-model="member.email" 
+		                  	placeholder="Enter Email"
+		                  	maxlength="100"
+		                  	ng-disabled="action == 'View' || action == 'Edit'">
+		                </div>
+					</div>
+					<div class="col-sm-3">
+						<div class="form-group">
+		                  <label for="DateofBirth">Date of Birth</label>
+		                  <input type="text" date-picker
+		                  	id="DateofBirth" 
+		                  	class="form-control" 
+		                  	ng-model="member.dateOfBirth" 
+		                  	placeholder="Enter Date of Birth"
+		                  	ng-disabled="action == 'View'">
+		                </div>
+					</div>
+					<div class="col-sm-3">
+						<div class="form-group">
+		                  <label for="DateofJoining">Date of Joining</label>
+		                  <input type="text" 
+		                  	id="DateofJoining" 
+		                  	class="form-control" 
+                  			ng-model="member.joiningDate"
+	                  		placeholder="Enter Date of Joining"
+	                  		ng-disabled="action == 'View'">
+		                </div>
+					</div>
+					<div class="col-sm-3">
+						<div class="form-group">
+		                  <label for="CookingDate">Cooking Date</label>
+		                  <select class="form-control" ng-model="member.cookingDay" id="CookingDate"
+		                  	ng-options="obj.id as obj.name for obj in [{'id':'SUNDAY','name':'Sunday'},{'id':'MONDAY','name':'Monday'},{'id':'TUESDAY','name':'Tuesday'},{'id':'WEDNESDAY','name':'Wednesday'},{'id':'THURSDAY','name':'Thursday'},{'id':'FRIDAY','name':'Friday'},{'id':'SATURDAY','name':'Saturday'}]"
+		                  	ng-disabled="action == 'View'">
+		                  	<option selected disabled>--Select--</option>
+		                  </select>
+		                </div>
+					</div>
+					<div class="col-sm-3">
+						<div class="form-group">
+		                  <label for="Status">Status</label>
+		                  <select class="form-control" ng-model="member.status" id="Status"
+		                  	ng-options="obj.id as obj.name for obj in [{'id':'ACTIVE','name':'Active'},{'id':'INACTIVE','name':'Inactive'}]"
+		                  	ng-disabled="action == 'View'">
+		                  	<option selected disabled>--Select--</option>
+		                  </select>
+		                </div>
+					</div>
+				</div>
+			</div>
+			<div class="box-footer with-border">
+				<div style="float: right;">
+					<button ui-sref="room.members" class="btn btn-danger">Cancel</button>
+					<button class="btn btn-success" ng-click="submit()">Submit</button>
+				</div>
+			</div>
+		</div>
+	</section>
+</div>
+<script>
+	$(function() {
+		$("#DateofBirth").datepicker({
+			dateFormat : "yy-mm-dd"
+		});
+		$("#DateofJoining").datepicker({
+			dateFormat : "yy-mm-dd"
+		});
+	});
+</script>

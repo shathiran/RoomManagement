@@ -1,0 +1,1 @@
+insert into member(email,mobile_number,name,status,user_type,password) values("admin@room.com","0000000000","Room","ACTIVE","ROOM","7a96ef429cc1d0b76a60de1b0d733024");
